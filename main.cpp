@@ -8,11 +8,10 @@ void menuParte1Int();
 
 int main (int argc, char *argv[]) {
 	menuPrincipal();
-	int opt=elegirOpt(0,2);
-	switch(opt){
+	int opt=0;
+	switch(elegirOpt(0,2)){
 		case 1:
 			menuParte1();
-			break;
 		case 2:
 			menuParte1Int();
 			switch(elegirOpt(0,2)){
@@ -21,6 +20,8 @@ int main (int argc, char *argv[]) {
 				case 2:
 					break;
 			}
+		case 0:
+			cout<<"Bye bye"<<endl;
 			break;
 	}
 	return 0;

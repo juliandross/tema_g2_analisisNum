@@ -1,5 +1,16 @@
 #ifndef LAGRANGE_H
 #define LAGRANGE_H
+#include <cmath>
+#include <vector>
+#include <iostream>
+
+#include "newthon.h"
+
+
+using std::vector;
+using std::cout;
+using std::cin;
+using std::endl;
 
 //metodo de interpolacion
 namespace interpolacion{
@@ -41,6 +52,9 @@ namespace interpolacion{
 			return r2; 
 		}	
 	private: 	
+		int n=x.size();//tamaño
+		
+		
 		void hallar_intevalo(double int_x, int grado){
 			int num_datos = grado +1; 
 			intervalo_x.resize(num_datos);
@@ -99,7 +113,7 @@ namespace interpolacion{
 					contador++; 
 				}
 				i=indice_lim_sup;
-				while (i<=j && i<x.size()){
+				while (i<=j && i<n){
 					intervalo_x[contador]=x[i];
 					intervalo_y[contador]=y[i]; 
 					i++;
@@ -133,7 +147,7 @@ namespace interpolacion{
 					j = indice_lim_sup + num_datos  - numeros_debajo_lim_inf -1; 
 				}
 				i=indice_lim_sup;
-				while (i<=j && i<x.size()){
+				while (i<=j && i<n){
 					intervalo_x[contador]=x[i];
 					intervalo_y[contador]=y[i]; 
 					i++;
@@ -150,7 +164,8 @@ namespace interpolacion{
 				intervalo_y_error[intervalo_x.size()-1] = y[indice_lim_sup+1];
 			}
 			else{
-				for(int i=1; i<=intervalo_x_error.size();i++){
+				int ie=intervalo_x_error.size();
+				for(int i=1; i<=ie;i++){
 					intervalo_x_error[i]= intervalo_x_error[i-1];
 					intervalo_y_error[i]= intervalo_y_error[i-1];
 				}
@@ -164,7 +179,8 @@ namespace interpolacion{
 		void calcular_error(int int_x,newton n){
 			
 			r2 = n.obtenerUltimoCoeficiente();
-			for(int i=0; i<intervalo_x.size();i++){
+			int is=intervalo_x.size();
+			for(int i=0; i<is;i++){
 				r2*= (int_x - intervalo_x[i]);
 			}
 			
@@ -212,7 +228,7 @@ namespace interpolacion{
 		
 		double evaluar(double int_x, int grado){
 			double suma = 0; 
-			if(grado>x.size() -1){
+			if(grado>n -1){
 				return NAN;
 			}
 			hallar_intevalo( int_x,grado); 
