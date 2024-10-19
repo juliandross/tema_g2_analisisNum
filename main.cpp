@@ -8,7 +8,6 @@ void menuParte1Int();
 
 int main (int argc, char *argv[]) {
 	menuPrincipal();
-	int opt=0;
 	switch(elegirOpt(0,2)){
 		case 1:
 			menuParte1();
@@ -16,8 +15,10 @@ int main (int argc, char *argv[]) {
 			menuParte1Int();
 			switch(elegirOpt(0,2)){
 				case 1:
-					break;
+					
 				case 2:
+					
+				case 0:
 					break;
 			}
 		case 0:
