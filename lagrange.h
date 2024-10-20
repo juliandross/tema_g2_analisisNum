@@ -3,6 +3,7 @@
 #include <cmath>
 #include <vector>
 #include <iostream>
+#include <iomanip> 
 
 #include "newthon.h"
 
@@ -11,6 +12,7 @@ using std::vector;
 using std::cout;
 using std::cin;
 using std::endl;
+using std::abs;
 
 //metodo de interpolacion
 namespace interpolacion{
@@ -51,9 +53,27 @@ namespace interpolacion{
 		double getError(){
 			return r2; 
 		}	
+		// Método para imprimir el error relativo
+		void imprimir_error_relativo(double valor_real, double valor_interpolado) {
+			double error_relativo = calcular_error_relativo(valor_real, valor_interpolado);
+			cout << "Error relativo: " << std::setprecision(10) << error_relativo << endl;
+		}
+		
+		// Método para imprimir el error porcentual
+		void imprimir_error_porcentual(double valor_real, double valor_interpolado) {
+			double error_porcentual = calcular_error_relativo(valor_real, valor_interpolado) * 100;
+			cout << "Error porcentual: " << std::setprecision(10) << error_porcentual << "%" << endl;
+		}
+			
 	private: 	
 		int n=x.size();//tamaño
 		
+		double calcular_error_relativo(double valor_real, double valor_interpolado) {
+			if (valor_real == 0) {
+				return NAN; // Evita la división por cero
+			}
+			return abs((valor_real - valor_interpolado) / valor_real);
+		}
 		
 		void hallar_intevalo(double int_x, int grado){
 			int num_datos = grado +1; 

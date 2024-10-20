@@ -19,11 +19,11 @@ current_source=main.cpp
 path_char=\
 [source]
 path=main.cpp
-cursor=24:9
+cursor=22:9
 open=true
 [source]
 path=caso.cpp
-cursor=0:0
+cursor=30:2
 open=true
 [header]
 path=spline3.h
@@ -31,11 +31,11 @@ cursor=0:0
 open=true
 [header]
 path=lagrange.h
-cursor=0:0
+cursor=55:2
 open=true
 [header]
 path=caso.h
-cursor=0:0
+cursor=6:0
 open=true
 [header]
 path=newthon.h
