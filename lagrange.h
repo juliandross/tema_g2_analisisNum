@@ -56,13 +56,13 @@ namespace interpolacion{
 		// Método para imprimir el error relativo
 		void imprimir_error_relativo(double valor_real, double valor_interpolado) {
 			double error_relativo = calcular_error_relativo(valor_real, valor_interpolado);
-			cout << "Error relativo: " << std::setprecision(10) << error_relativo << endl;
+			cout << "Error relativo: " << std::setprecision(8) << error_relativo << endl;
 		}
 		
 		// Método para imprimir el error porcentual
 		void imprimir_error_porcentual(double valor_real, double valor_interpolado) {
 			double error_porcentual = calcular_error_relativo(valor_real, valor_interpolado) * 100;
-			cout << "Error porcentual: " << std::setprecision(10) << error_porcentual << "%" << endl;
+			cout << "Error porcentual: " << std::setprecision(8) << error_porcentual << "%" << endl;
 		}
 			
 	private: 	
