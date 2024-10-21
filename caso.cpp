@@ -4,9 +4,10 @@
 #include "caso.h"
 #include "expresion.h"
 #include "lagrange.h"
+#include "spline3.h"
 
 using interpolacion::lagrange;
-
+using interpolacion::spline3;
 //Parte 1
 
 
@@ -102,5 +103,19 @@ void caso_2_lagrange_3(){
 
 //Parte 2 B.
 void caso_trazador_cubico(){
+	cout << "Caso trazador cubico" << endl;
+	vector<double> x = {1.25, 1.50, 1.75, 2.00};
+	vector<double> y = {0.9560871, 0.8545027, 0.6762921, 0.4107813};
+	spline3 sp(x,y);
+	double x_int = 1.625f;
+	double y_int;
 	
+	if(!sp.es_valido()){
+		cout << "No valido para interpolar" << endl;
+		return;
+	}else{
+		y_int = sp.interpolar(x_int);
+		cout<<"\nPara x = "<<x_int<<" la interpolacion es y="<<y_int<<endl;
+		sp.imprimir_error(0.775847881,y_int);
+	}
 }

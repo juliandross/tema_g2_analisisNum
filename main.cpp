@@ -24,7 +24,7 @@ int main (int argc, char *argv[]) {
 			break;
 		case 2:
 			menuParte2();
-			opt2=elegirOpt(0,2);
+			opt2=elegirOpt(0,3);
 			switch(opt2){
 			case 1:
 				caso_1_lagrange_2();
@@ -41,6 +41,10 @@ int main (int argc, char *argv[]) {
 				getchar();
 				break;
 			case 3:
+				caso_trazador_cubico();
+				cout<<"Presione cualquier tecla para continuar...";
+				getchar();
+				getchar();
 				break;
 			}
 			break;
