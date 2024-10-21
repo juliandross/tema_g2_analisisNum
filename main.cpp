@@ -11,29 +11,34 @@ void menuParte1Int();
 
 int main (int argc, char *argv[]) {
 	int opt;
+	int opt2;
 	do{
-		//menuPrincipal();
+		menuPrincipal();
 		opt=elegirOpt(0,2);
 		switch(opt){
 		case 1:
-			system("cls");
 			menuParte1();
 			cout<<"Presione cualquier tecla para continuar...";
 			getchar();
+			getchar();
+			break;
 		case 2:
 			menuParte1Int();
-			switch(elegirOpt(0,2)){
+			opt2=elegirOpt(0,2);
+			switch(opt2){
 			case 1:
-				system("cls");
 				caso_1_lagrange_2();
 				cout<<"Presione cualquier tecla para continuar...";
 				getchar();
+				getchar();
+				break;
 			case 2:
-				system("cls");
-				
 				cout<<"Presione cualquier tecla para continuar...";
 				getchar();
+				getchar();
+				break;
 			}
+			break;
 		case 0:
 			cout<<"Bye bye"<<endl;
 			break;
@@ -45,7 +50,7 @@ int main (int argc, char *argv[]) {
 
 void menuPrincipal(){	
 	system("cls");
-	cout<<"\n---Menu---\n1. Parte_1(Kilovatios)\n2. Parte_2\n0. Salir"<<endl;
+	cout<<"\n---Menu taller2---\n1. Parte_1(Kilovatios)\n2. Parte_2\n0. Salir"<<endl;
 }
 
 void menuParte1(){

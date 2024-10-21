@@ -25,9 +25,9 @@ void caso_1_lagrange_2(){
 		cout<<"\nPara x = "<<int_x <<" la interpolacion es  y="<<y_est<<endl; 
 		
 		cout<<"\nError relativo: ";
-		l.imprimir_error_relativo(0.9591622, y_est);	
+		l.imprimir_error_relativo(0.967848271, y_est);	
 		cout<<"\nError relativo porcentual: ";
-		l.imprimir_error_relativo(0.9591622, y_est);	
+		l.imprimir_error_porcentual(0.967848271, y_est);	
 	}
 }
 
