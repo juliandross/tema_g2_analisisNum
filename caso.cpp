@@ -5,14 +5,86 @@
 #include "expresion.h"
 #include "lagrange.h"
 #include "spline3.h"
+#include "regresion.h"
+#include "regresion_cuadratica.h"
 
 using interpolacion::lagrange;
 using interpolacion::spline3;
+using regresion::lineal_simple;
+using regresion::lineal_potencia;
+using regresion::lineal_exponencial;
+using regresion::modelo_lineal;
+using regresion::modelo_potencia;
+using regresion::modelo_exponencial;
+using regresion::cuadratica;
+using regresion::modelo_cuadratico;
 //Parte 1
 
-
-
-
+void parte_1_lineal(){
+	cout<<"Parte 1 funcion lineal"<<endl;
+	
+	vector<double> x{120.0d,125.0d,135.0d,150.0d,160.0d,170.0d,185.0d,205.0d,225.0d,270.0d};
+	vector<double> y{1175.0d,1190.0d,1250.0d,1490.0d,1565.0d,1720.0d,1805.0d,1860.0d,1950.0d,1945.0d};
+	
+	lineal_simple ls (x,y);
+	
+	double x_est=210.0d;
+	double y_est=ls.estimar(x_est);
+	
+	
+	ls.aceptable();
+	cout<<x_est<<" Estimacion de 210: "<<y_est<<endl;
+}	
+void parte_1_potencial(){
+	cout<<"Parte 1 funcion potencial"<<endl;
+		
+	vector<double> x{120.0d,125.0d,135.0d,150.0d,160.0d,170.0d,185.0d,205.0d,225.0d,270.0d};
+	vector<double> y{1175.0d,1190.0d,1250.0d,1490.0d,1565.0d,1720.0d,1805.0d,1860.0d,1950.0d,1945.0d};
+		
+	double xi = 210.0d;
+	double y_estimado;
+	lineal_potencia r(x,y); 
+		
+		
+	y_estimado = r.estimar(xi);
+	modelo_potencia modelo = r.obtenerModelo();
+		
+	modelo.aceptable();
+	cout<<"El valor estimado para x="<<xi
+		<<" es y="<<y_estimado<<endl;
+}
+		
+void parte_1_exponencial(){
+	cout<<"Parte 1 funcion exponencial"<<endl;
+	vector<double> x{120.0d,125.0d,135.0d,150.0d,160.0d,170.0d,185.0d,205.0d,225.0d,270.0d};
+	vector<double> y{1175.0d,1190.0d,1250.0d,1490.0d,1565.0d,1720.0d,1805.0d,1860.0d,1950.0d,1945.0d};
+			
+	double xi = 210.0d;
+	double y_estimado;
+	lineal_exponencial r(x,y); 
+			
+			
+	y_estimado = r.estimar(xi);
+	modelo_exponencial modelo = r.obtenerModelo();
+			
+	modelo.aceptable();
+	cout<<"El valor estimado para x="<<xi
+		<<" es y="<<y_estimado<<endl;
+}
+			
+void parte_1_cuadratica(){
+	cout<<"Parte 1 cuadratica"<<endl;
+	vector<double> x{120.0d,125.0d,135.0d,150.0d,160.0d,170.0d,185.0d,205.0d,225.0d,270.0d};
+	vector<double> y{1175.0d,1190.0d,1250.0d,1490.0d,1565.0d,1720.0d,1805.0d,1860.0d,1950.0d,1945.0d};
+				
+	cuadratica cuadrado(x,y);
+	double y_est=cuadrado.estimar(210.0d);
+				
+	cout<<"Estimado de 210: "<<y_est<<endl;
+				
+	modelo_cuadratico m=cuadrado.obtener_modelo();
+	cout<<m<<endl;
+}
 
 
 

@@ -18,9 +18,33 @@ int main (int argc, char *argv[]) {
 		switch(opt){
 		case 1:
 			menuParte1();
-			cout<<"Presione cualquier tecla para continuar...";
-			getchar();
-			getchar();
+			opt2=elegirOpt(0,4);
+			switch(opt2){
+			case 1:
+				parte_1_lineal();
+				cout<<"Presione cualquier tecla para continuar...";
+				getchar();
+				getchar();
+				break;
+			case 2:
+				parte_1_potencial();
+				cout<<"Presione cualquier tecla para continuar...";
+				getchar();
+				getchar();
+				break;
+			case 3:
+				parte_1_exponencial();
+				cout<<"Presione cualquier tecla para continuar...";
+				getchar();
+				getchar();
+				break;
+			case 4:
+				parte_1_cuadratica();
+				cout<<"Presione cualquier tecla para continuar...";
+				getchar();
+				getchar();
+				break;
+			}
 			break;
 		case 2:
 			menuParte2();

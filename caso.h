@@ -12,4 +12,13 @@ void caso_2_lagrange_3();
 
 void caso_trazador_cubico();
 
+void parte_1_lineal();
+
+void parte_1_potencial();
+
+void parte_1_exponencial();
+
+void parte_1_cuadratica();
+
+
 #endif
